@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T13:11:12.456Z",
+  "mode": "release",
+  "complete": true,
+  "releaseGatePassed": true,
+  "versions": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "cargo": "cargo 1.90.0 (840b83a10 2025-07-30)",
+    "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)"
+  },
+  "sourceHashes": {
+    ".github/workflows/verify.yml": "35544204fa27cca87819832bb7d758ad71d5c6566c0bff5306aa3b0430528215",
+    ".gitignore": "db09b834dc42fce8f19141612dd673204162c3d7e9e15f9624d524283acb4d03",
+    "Cargo.lock": "e8e8ce164ce759e1a8ff481ef3e61ec796b670fc0e8687af3e2d1d3806c0a1ab",
+    "Cargo.toml": "cdf91ccf57ce18f73ea7c18b3c3dbd80e2342e43898bcfb9060781c67050bcfb",
+    "README.md": "c29f8c87b6f225198f8ee50ed4aa97b871c5c4bad8559b90d3bfd00802e21072",
+    "crates/rgi-core/Cargo.toml": "519b59dc2f02bb846245a8317d2ab0fe4ea95ba28c600515c9182e0aabd7c096",
+    "crates/rgi-core/examples/bench.rs": "0bc7208c77d82ec27822f7b625deb3f46cb7be42b68edbc9343d348544b53976",
+    "crates/rgi-core/src/lib.rs": "fb5904fe6b3fb0efbfb179e952541086337c1bb8b86931ce9e00a55fad2beb24",
+    "crates/rgi-napi/Cargo.toml": "82ac332325065944aa3f33f7f87e35ef65e1a59e34f371e963e11684f06775c5",
+    "crates/rgi-napi/build.rs": "fcbd1ff3f627a7553fa1704dc6f558998daff8bc256015c37aace62cc49ce584",
+    "crates/rgi-napi/src/lib.rs": "187dde2bfc001a28c7592cf37c94228c440e6ce66324223dbfa44560dd0a698d",
+    "crates/rgi-wasm/Cargo.toml": "1e470c9d14f6066ca12e2a83fcd8f5330f07d4ca51565e349a83206bc7cb452d",
+    "crates/rgi-wasm/src/lib.rs": "bfb3fcee8c806ccb5e5a760456410409f36aa4a53729f5d41a684fb75fd88db3",
+    "docs/ADR-006-grounded-adaptation.md": "d34992833fb185b9f230ac2b4b07a32187740a1bcb8e496ac1e6c4be95c83c1e",
+    "docs/ADRs.md": "695b2108b3500638b24313f92fd077a2bbfc14651b303ddd19594925ffdcef16",
+    "docs/INTEGRATIONS.md": "7a3622c6305dcecc7ea74b1c2c1f9720b73c04828efb2a5757d0746d6857fd19",
+    "docs/OPERATIONS.md": "24a108632bf519866100324157f885f4d47e425da86443a721cff710721d2fee",
+    "docs/RESEARCH-2026-09.md": "b0962391a0980c83915b0b0faf71cf06b26f9efe535b6e6a9622431a3b46368e",
+    "docs/RUST.md": "023e761cd82be7710efecec207f953187ad0765e951d87ec883188174f5f2009",
+    "docs/SPECIFICATION.md": "bf40b34bfd3fc133f4de52be1a7a6c50d7ddb2b47f2d28058e1406b4cdd9d9a7",
+    "docs/THREAT-MODEL.md": "73cb7eda1728f1f9817ad73636466ebb01f89be234313a25cb9f90a37045e57f",
+    "evidence/README.md": "cadb4aeff52a275a71d6a5505fe9f3a686f7c3304cd7c37129dac5a0b36993f6",
+    "evidence/policy-benchmark.json": "f02caa32f612f2f4244900ac813e5c61ecfbedad00a1d0b50613a78402602299",
+    "evidence/runtime-benchmark.json": "b60176c96552c524c1c5e506794b2a1060c71a32b2e5792e14955777e9b3bd07",
+    "evidence/verification.json": "0bbdda167e3ad613659ff573ec832cb738afa676764bc09441176b77d84d5c2c",
+    "examples/local-plugin.ts": "482891ab3ddd876154482f3061eec3bdd175b660a370992e8f75b57ba3a85059",
+    "examples/rgi.json": "b4f73185c64b1db53c1b15703d528333c7b4f78c9ad5c452088cccdd864ff349",
+    "package-lock.json": "9a5599b31e7a46b7baf8867a51393b3e74080977aa489b24f95740e1801d94d1",
+    "package.json": "2bc51bd073733d2e4f39b73b81203d184af998712c34fe6f098b10fe611832b2",
+    "rust-toolchain.toml": "3a00ee1d8b1944b135b4b93b219422db2328a4c208bfc20c5d210f438f7207fa",
+    "scripts/benchmark-adaptation.ts": "8637d5f622344c91995d0b9e428462e5029bda3ad2147d754ff7dd4493a94a0d",
+    "scripts/benchmark-runtime.ts": "2574f4e19f09422392461dd2448c17601c4c53471f0491bac7db95c1dce65602",
+    "scripts/benchmark.ts": "47a5b40cba533a4b1de4aa0c837a260c68a38fd6367877a2ac0d9e4019775999",
+    "scripts/check-bindings.ts": "7ed54fb4944ae3a4df08240ea4a8eaab3fe7fdb01f2a4c07d3f4f2ac51f27f8a",
+    "scripts/harness.ts": "2bf6e10b49a0454a9d3e70dedc97b688cfb8bb6b9a2083493351ce029af83be2",
+    "src/adapters/agenticow.ts": "7a65ae345b1e12d06204ae3b9478d35bb32f26f7c4359526128040cdbea2e84d",
+    "src/adapters/metaharness.ts": "4845c127a1d78b2059e4f2552a29dcf422b610003eee584e638abef10878cd52",
+    "src/adapters/rufield.ts": "28367091036caa65edcbfcb5cff08fad5689eec38146313443bfba62185b7db2",
+    "src/adapters/rvcsi.ts": "d8dd6b1aa40dd3a0245dff9e9d799b468a6aca3f550efc64e7ae8d287410be53",
+    "src/adapters/worldmodel.ts": "e9f802f65b2385d8b55ecdc3d84020609a34e66830eac04e30ab704aedee9020",
+    "src/adaptive.ts": "ae255bbec727cc2c3190aece5896e1821ee8ec2b44eb759c03cf6dbdeff751e2",
+    "src/bindings.ts": "17dc69101a0d7c988c624b46342d5937871bf99da845f331cb19a48a42f8db0d",
+    "src/cli.ts": "d91d28adf51aa5bdbf2f8c555fe43a8c354a3427225008bf7f421a62d4ceb8c1",
+    "src/context.ts": "68828a5c17ce45147739957f1d5020a640ccc5837457152114480df9d61737c5",
+    "src/contracts.ts": "862f9d56cc80276dc7761aa5770228deec504b57e9d48b68fdb09f00bcd2e4a6",
+    "src/evaluation.ts": "151fc23d209129a0fb5bd746fc3338831feb3017e208dae5d969ec3b2d42cf6e",
+    "src/learning.ts": "feda9b0cc4bc5542d615f6d7b14250a78efff0d8690fd6acb9a629efbf31b96a",
+    "src/planning.ts": "17a9d8e6719cb1da70940098a73590bf538a52936c79582466b0f1866c913b6e",
+    "src/policy.ts": "b00a48aafd1b1d70ed968085b57eaa171cb2294cd69925143a665d269b33a5a5",
+    "src/promotion-ledger.ts": "4235b729429a9c3dd52039c813a9ab0850cc8ebabe5dddabcfd99974af3d5e67",
+    "src/runtime.ts": "deeb36a6d2cd9db312bf73ebc7e5f3995f2f22b7ef56d55434c2ffbb9fed2e30",
+    "src/store.ts": "c215e191d12409142966d04eb44cb375cba29133a13010ee1add71cf9cac9db0",
+    "tests/adapters.test.ts": "23094a99fe3755863ac73de78891e9f0f4ff658c046d98024f0c8caf797fefd7",
+    "tests/cli.test.ts": "cfc631a1c93002532503b77390bde8768aa884aee940aebecf49c17da6cbd5c5",
+    "tests/evaluation.test.ts": "6e3f0a2cd9870812d9024280173f08d42c5ec0879a62d6e5f121cbedd9a01ef1",
+    "tests/feedback.test.ts": "bc199e1dee03f74de304ea6e3a9383e425c117f0815fd3f9fbc9dac4c87a590a",
+    "tests/planning.test.ts": "35b945b9b186298824db42666f34a3b8eca068548d6d305b23e06c40b6917fa0",
+    "tests/promotion-ledger.test.ts": "6700601bd750e4c9e49e30663d30bcb56b9eb692727c2dc1abb1a7db9e3dc31d",
+    "tests/runtime.test.ts": "d5346685062d6858a1e935d1aa7ceaf6e7e390c0a7d840eb953c27b9946cfae5",
+    "tests/security.test.ts": "a8c4edbd4a37b7d52df0ad8ad18558bc14de8ff47276de5d4ea6ba1e759ac286",
+    "tsconfig.json": "ed7b5f815da474413efb02cd16e9b2b172c392eac3bd8b38e636d1c15e9d15ba"
+  },
+  "results": [
+    {
+      "name": "typescript",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2942,
+      "outputSha256": "d8bdd3429861d849832cfe644b751ef83c19ef6f36416e46edd23d4b5585a23b",
+      "reason": null
+    },
+    {
+      "name": "typescript-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1483,
+      "outputSha256": "c6ef0896378f9ace4bb01971991f70ac806fbd043a9a4073266570ad27991824",
+      "reason": null
+    },
+    {
+      "name": "rust-tests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 167,
+      "outputSha256": "160860d259d34f5909c103a60ac751ea119aad754c744395b61fef8cccda0edd",
+      "reason": null
+    },
+    {
+      "name": "rust-format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 100,
+      "outputSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reason": null
+    },
+    {
+      "name": "rust-clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 138,
+      "outputSha256": "23ece6e8b6143673048de356927a80cf86648bd5a0db875102cecda04bdb23bc",
+      "reason": null
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-napi",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 82,
+      "outputSha256": "2037a5f67be9f05ea0ddb465344d2fc0c53c5c3d52771a26a5072378e422c7b3",
+      "reason": null
+    },
+    {
+      "name": "wasm-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-wasm",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 85,
+      "outputSha256": "2037a5f67be9f05ea0ddb465344d2fc0c53c5c3d52771a26a5072378e422c7b3",
+      "reason": null
+    },
+    {
+      "name": "binding-execution-parity",
+      "command": [
+        "node",
+        "scripts/check-bindings.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 197,
+      "outputSha256": "cf2f97889d50b4ee8c0d8e3227ac0b3ac082d46b0577119b111899e44c497be1",
+      "reason": null
+    },
+    {
+      "name": "benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 182,
+      "outputSha256": "cf9e4f64675ee7ea9c6fc5d7087ac46d5ed7678b8332b30841336c53266ccf5a",
+      "reason": null
+    },
+    {
+      "name": "runtime-benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark-runtime.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 728,
+      "outputSha256": "c87a819ff38f39fc9cd80d9eeed90046e42b99413a19695f7e6c91020e7606c8",
+      "reason": null
+    },
+    {
+      "name": "adaptation-benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark-adaptation.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2114,
+      "outputSha256": "f10c768136cc428a76bed07d73c2ce87883568f61f22f10371f238d4fd9e5b07",
+      "reason": null
+    },
+    {
+      "name": "npm-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6457,
+      "outputSha256": "e074fc586813f2ca54af6c87e6bc9a5447f143bc4b50c7c222d493c9c1e6749a",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    },
+    {
+      "name": "rust-advisories",
+      "command": [
+        "cargo",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 13506,
+      "outputSha256": "7fbd52a355cabc6544b0b8d380e7396c33f55cb73377a5760528347b0db4774c",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    }
+  ],
+  "limitations": [
+    "Passing checks is not proof of AGI, safety, production readiness or authorization to publish.",
+    "Advisory checks do not replace review of reachable code.",
+    "No scanner stdout is retained to reduce accidental secret disclosure."
+  ]
+}

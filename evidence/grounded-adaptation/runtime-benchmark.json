@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T13:10:50.341Z",
+  "benchmark": "sqlite-durable-noop-dispatch",
+  "iterations": 1000,
+  "elapsedMs": 527.8361789999999,
+  "operationsPerSecond": 1894.5272032972946,
+  "medianMs": 0.3627079999999978,
+  "p95Ms": 0.864921000000038,
+  "p99Ms": 2.8408409999999833,
+  "durability": "SQLite WAL synchronous=FULL",
+  "environment": {
+    "node": "v24.19.0",
+    "cpu": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "limitations": [
+    "Local shared host and filesystem only. No model, sensor, network or real task inference.",
+    "Includes validation, queue, policy, reservation and receipts. No production throughput guarantee."
+  ]
+}

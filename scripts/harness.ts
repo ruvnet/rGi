@@ -18,6 +18,7 @@ const checks: Check[] = [
   { name: 'binding-execution-parity', command: 'node', args: ['scripts/check-bindings.ts'] },
   { name: 'benchmark', command: 'node', args: ['scripts/benchmark.ts'] },
   { name: 'runtime-benchmark', command: 'node', args: ['scripts/benchmark-runtime.ts'] },
+  { name: 'adaptation-benchmark', command: 'node', args: ['scripts/benchmark-adaptation.ts'] },
   { name: 'npm-advisories', command: 'npm', args: ['audit', '--json'], scanner: true },
   { name: 'rust-advisories', command: 'cargo', args: ['audit', '--json'], scanner: true },
 ];

@@ -1,6 +1,6 @@
 import { DatabaseSync } from 'node:sqlite';
 import { createHash } from 'node:crypto';
-import type { Action, Observation, RuntimeConfig, JobStatus } from './contracts.ts';
+import type { Action, Observation, RuntimeConfig, JobStatus, ExecutionFeedback } from './contracts.ts';
 import { boundedJson, identifier, money, validateAction, validateObservation } from './policy.ts';
 
 type Row = Record<string, unknown>;
@@ -14,7 +14,13 @@ export class Store {
     this.db = new DatabaseSync(path);
     if (!initialize) return;
     const version = Number(this.db.prepare('PRAGMA user_version').get()?.user_version);
-    if (version > 1) { this.db.close(); throw new Error('unsupported_database_version'); }
+    if (version > 2) { this.db.close(); throw new Error('unsupported_database_version'); }
+    if(version===1){
+      const active=this.db.prepare('SELECT owner,lease_until FROM control WHERE id=1').get();
+      if(active?.owner!==null&&Number(active?.lease_until)>Date.now()){
+        this.db.close();throw new Error('migration_requires_stopped_runtime');
+      }
+    }
     const pageSize = Number(this.db.prepare('PRAGMA page_size').get()?.page_size);
     const maxPages = Math.floor(config.maxDatabaseBytes / pageSize);
     const actualMax = Number(this.db.prepare(`PRAGMA max_page_count=${maxPages}`).get()?.max_page_count);
@@ -35,7 +41,8 @@ export class Store {
         seq INTEGER PRIMARY KEY AUTOINCREMENT, kind TEXT NOT NULL,
         job_id TEXT, detail TEXT NOT NULL, created INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS checkpoints (name TEXT PRIMARY KEY, body TEXT NOT NULL);
-      PRAGMA user_version=1;
+      CREATE TABLE IF NOT EXISTS feedback (seq INTEGER PRIMARY KEY AUTOINCREMENT,job_id TEXT UNIQUE NOT NULL,body TEXT NOT NULL);
+      PRAGMA user_version=2;
     `);
   }
   transaction<T>(fn: () => T): T {
@@ -57,7 +64,11 @@ export class Store {
       this.db.prepare("UPDATE jobs SET status='uncertain',reason='interrupted' WHERE status='running'").run();
       if (running.length) {
         this.db.prepare('UPDATE control SET stopped=1 WHERE id=1').run();
-        for (const job of running) this.receipt('uncertain', String(job.id), 'interrupted');
+        for (const job of running) {
+          this.receipt('uncertain', String(job.id), 'interrupted');
+          const action=this.job(String(job.id))?.action;
+          if(action)this.recordFeedback(action,'uncertain',undefined,null,'interrupted');
+        }
       }
     });
   }
@@ -112,6 +123,7 @@ export class Store {
   deny(id: string, reason: string): void {
     this.db.prepare("UPDATE jobs SET status='denied',reason=? WHERE id=?").run(reason,id);
     this.receipt('denied',id,reason);
+    const action=this.job(id)?.action;if(action)this.recordFeedback(action,'denied',undefined,0,reason);
   }
   finish(action: Action, output: unknown, actualCostMicros: number): void {
     money(actualCostMicros);
@@ -123,11 +135,13 @@ export class Store {
     if (this.control().spentMicros + this.control().reservedMicros > this.config.budgetMicros)
       this.db.prepare('UPDATE control SET stopped=1 WHERE id=1').run();
     this.receipt('succeeded',action.id,JSON.stringify({actualCostMicros}));
+    this.recordFeedback(action,'succeeded',output,actualCostMicros,null);
   }
   uncertain(id: string, reason: string): void {
     this.db.prepare("UPDATE jobs SET status='uncertain',reason=? WHERE id=? AND status='running'").run(reason,id);
     this.db.prepare('UPDATE control SET stopped=1 WHERE id=1').run();
     this.receipt('uncertain',id,reason);
+    const action=this.job(id)?.action;if(action)this.recordFeedback(action,'uncertain',undefined,null,reason);
   }
   observe(observation: Observation): void {
     validateObservation(observation, this.config.maxRecordBytes);
@@ -140,10 +154,27 @@ export class Store {
   observations(): Observation[] {
     return this.db.prepare('SELECT body FROM observations ORDER BY created,rowid').all().map(row => JSON.parse(String(row.body)) as Observation);
   }
+  private recordFeedback(action:Action,status:ExecutionFeedback['status'],output:unknown,cost:number|null,reason:string|null):void{
+    let record:ExecutionFeedback={actionId:action.id,capability:action.capability,status,payload:action.payload,
+      ...(output===undefined?{}:{output}),omitted:false,actualCostMicros:cost,reason,timestamp:Date.now()};
+    let body:string;
+    try{body=boundedJson(record,this.config.maxRecordBytes);}
+    catch{
+      record={actionId:action.id,capability:action.capability,status,omitted:true,actualCostMicros:cost,reason,timestamp:Date.now()};
+      body=boundedJson(record,this.config.maxRecordBytes);
+    }
+    this.db.prepare('DELETE FROM feedback WHERE job_id=?').run(action.id);
+    this.db.prepare('INSERT INTO feedback(job_id,body) VALUES(?,?)').run(action.id,body);
+    this.db.prepare('DELETE FROM feedback WHERE seq NOT IN (SELECT seq FROM feedback ORDER BY seq DESC LIMIT ?)').run(this.config.maxOutcomeContext);
+  }
+  outcomes():ExecutionFeedback[]{
+    return this.db.prepare('SELECT body FROM feedback ORDER BY seq').all().map(row=>JSON.parse(String(row.body)) as ExecutionFeedback);
+  }
   stop(): void { this.db.prepare('UPDATE control SET stopped=1 WHERE id=1').run(); }
   checkpoint(name: string, value: unknown): void {
     identifier(name);
     const body = boundedJson(value,this.config.maxRecordBytes);
+    if(this.db.prepare('SELECT body FROM checkpoints WHERE name=?').get(name)?.body===body)return;
     this.db.prepare('INSERT INTO checkpoints(name,body) VALUES(?,?) ON CONFLICT(name) DO UPDATE SET body=excluded.body').run(name,body);
     this.receipt('checkpoint',null,name);
   }

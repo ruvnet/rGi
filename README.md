@@ -119,3 +119,10 @@ Read [operations](docs/OPERATIONS.md), [threat model](docs/THREAT-MODEL.md), [ar
 ## Publication
 
 Source publication is separate from npm/crates.io release. Package publication remains disabled. A project license has not yet been selected; dependency licenses remain their respective authors' licenses.
+# Grounded adaptation update
+
+The [September research review](docs/RESEARCH-2026-09.md) maps eight primary sources to implemented mechanisms and explicit limits. The runtime now supplies durable execution feedback, filters expired observations at planning time, checkpoints learned planner state with queued actions, and requires a new runtime instance after a planning failure.
+
+`src/planning.ts` provides bounded predictive beam search through an injected dynamics model. `src/adaptive.ts` connects outcomes to a scalar online learner for simulation. `src/evaluation.ts` checks paired audit results, retention, cost and permissions; `src/promotion-ledger.ts` persists audit consumption and statistical budgets across evaluations. None automatically installs a candidate or expands execution authority.
+
+Run `node scripts/benchmark-adaptation.ts` for the fixed synthetic comparison. With 128 equal calibration interactions per model and parameters frozen during audit, adaptation completed 120/120 cases versus 80/120 for the frozen baseline. All gains came from the negative dynamics regime; the other two regimes retained 40/40. This tests instances of one scalar family, not general intelligence or transfer to unseen domains. See [ADR 006](docs/ADR-006-grounded-adaptation.md).
