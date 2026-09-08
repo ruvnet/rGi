@@ -51,3 +51,10 @@ Re-run the harness for the current source hashes and current check statuses. No 
 Final boundary review also found that rvCSI punctuation-containing source names produced IDs incompatible with the runtime validator. The adapter now uses stable namespaced SHA256 identifiers, retains original source metadata and validates complete observations before returning. Tests pass those mapped records through the actual runtime, rather than stopping at an adapter fixture.
 
 The additional command `npx --yes @claude-flow/cli@3.25.6 security secrets --action scan --path src` exited 0 and reported no secrets across 12 source files. Its scan does not cover the complete repository or unknown secret formats. The strict harness separately passed npm and Cargo advisory checks during this session. Consult the published evidence snapshot for exact final source hashes and rerun against current advisory data before release.
+# Adaptation boundaries
+
+Execution feedback records transport completion, denial and uncertainty, not verified task success. Model predictions remain separate from observations. Freshness checks reject future or expired sensor observations at consumption; historical outcomes remain bounded evidence whose relevance the planner must assess.
+
+Predictive search limits dimensions, branches, depth, expansions, cumulative cost and uncertainty. Injected synchronous model code remains trusted and needs process isolation for adversarial execution. A planner failure requires instance replacement to prevent uncommitted learned state from surviving a failed transaction.
+
+Paired evaluation rejects overlap, missing evidence, retention regression, cost regression and capability violations. The durable ledger prevents exact audit reuse and bounds statistical spending. Scores and task identity are still host trust boundaries; neither hashes nor significance prove their truth. The legacy `promotionGate` is a deprecated simulation helper.

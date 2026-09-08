@@ -29,7 +29,7 @@ export function validateConfig(config: RuntimeConfig): void {
     throw new Error('invalid_capabilities');
   config.allowedCapabilities.forEach(identifier);
   money(config.budgetMicros); confidence(config.minConfidence);
-  for (const k of ['maxQueue', 'maxObservations', 'maxRecordBytes', 'maxDatabaseBytes', 'actionTimeoutMs', 'leaseMs', 'idleMs'] as const)
+  for (const k of ['maxQueue', 'maxObservations', 'maxRecordBytes', 'maxDatabaseBytes', 'actionTimeoutMs', 'leaseMs', 'idleMs','maxOutcomeContext','maxObservationAgeMs'] as const)
     if (!Number.isSafeInteger(config[k]) || config[k] < 1 || config[k] > 1_000_000_000)
       throw new Error(`invalid_config:${k}`);
   if (config.maxRecordBytes > 1_048_576 || config.maxQueue > 100000 || config.maxObservations > 100000)
@@ -37,6 +37,7 @@ export function validateConfig(config: RuntimeConfig): void {
   if (config.leaseMs < config.actionTimeoutMs * 2) throw new Error('lease_too_short');
   if (config.idleMs > config.leaseMs / 4) throw new Error('idle_exceeds_lease');
   if (config.maxDatabaseBytes < 1048576) throw new Error('database_limit_too_small');
+  if (config.maxOutcomeContext>256) throw new Error('feedback_window_too_large');
 }
 export function validateAction(action: Action, limit = 65536): void {
   if (!action || typeof action !== 'object') throw new Error('invalid_action');
@@ -49,6 +50,7 @@ export function validateAction(action: Action, limit = 65536): void {
 export function validateObservation(observation: Observation, limit = 65536): void {
   identifier(observation.id); identifier(observation.source); identifier(observation.modality);
   money(observation.timestamp); confidence(observation.confidence); boundedJson(observation, limit);
+  if(observation.expiresAt!==undefined){money(observation.expiresAt);if(observation.expiresAt<=observation.timestamp)throw new Error('invalid_observation_expiry');}
 }
 /** Audited portable fallback. Native/WASM implementations must pass parity fixtures. */
 export function evaluatePolicy(input: PolicyInput): PolicyDecision {

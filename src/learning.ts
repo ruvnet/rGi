@@ -32,7 +32,8 @@ export class OnlineDynamics {
     return new OnlineDynamics(snapshot.gain,snapshot.rate);
   }
 }
-/** Evaluation evidence must come from host-controlled holdouts, never model self-report. */
+/** @deprecated Toy compatibility gate only. Use evaluateCandidate and PromotionLedger
+ * for paired host-controlled evidence and durable audit consumption. */
 export function promotionGate(evidence:CandidateEvidence):{promote:boolean;reason:string} {
   if (![evidence.baselineError,evidence.candidateError,evidence.retentionRegression].every(v=>Number.isFinite(v)&&v>=0)
     || !Number.isSafeInteger(evidence.samples) || evidence.samples<100

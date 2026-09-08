@@ -31,3 +31,10 @@ An injected Executor can access the host process because this is not an OS sandb
 Run `npm run harness` with Rust, wasm-bindgen and cargo-audit installed as documented. Inspect every failed or blocked result. Any unresolved high/critical reachable finding blocks production use. Review upstream integration provenance and perform real service/hardware tests in the intended environment before enabling those capabilities.
 
 Source publication does not authorize package publication or production actuation. npm is private and Cargo package publication is disabled until licensing and release policy are selected.
+# Schema 2 and planner recovery
+
+Stop the supervisor before upgrading a schema 1 journal. The additive migration preserves action IDs, reservations and checkpoints, and creates bounded execution feedback storage. Historical completed jobs are not backfilled into feedback. Back up the stopped journal before upgrading; running the older supervisor against schema 2 is unsupported.
+
+Use `plannerCheckpointKey` only with a planner implementing synchronous `snapshot` and `restore`. Snapshot and queued actions commit in one transaction. After any failed or interrupted planning cycle, create a fresh planner and runtime instance; `planner_restart_required` prevents reuse of uncommitted in-memory state. Untrusted plugins need process isolation because an abort signal cannot terminate arbitrary JavaScript.
+
+Keep `PromotionLedger` in a durable host-owned SQLite database separate from runtime transactions. Retain that database across candidate generations. Every well-formed rejected candidate also consumes its audit IDs and evaluation allowance. Resetting the database or renaming duplicate tasks defeats that protection; the host must control dataset identity and sealed audit access.

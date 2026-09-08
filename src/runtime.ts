@@ -4,10 +4,12 @@ import { DEFAULT_CONFIG } from './contracts.ts';
 import type { Action, Executor, Planner, Observation, PolicyEvaluator, RuntimeConfig } from './contracts.ts';
 import { evaluatePolicy, validateConfig, validateAction, boundedJson, money, deepFreeze } from './policy.ts';
 import { Store } from './store.ts';
+import { freshObservations } from './context.ts';
 
 export interface RuntimeOptions {
   dbPath: string; config?: Partial<RuntimeConfig>; executor: Executor;
   planner?: Planner; policy?: PolicyEvaluator;
+  plannerCheckpointKey?:string;
 }
 /** Perpetual means supervised/restartable, not immortal or unconstrained. */
 export class Runtime {
@@ -17,8 +19,10 @@ export class Runtime {
   readonly executor: Executor;
   readonly planner?: Planner;
   readonly policy: PolicyEvaluator;
+  readonly plannerCheckpointKey?:string;
   private active = false;
   private closed = false;
+  private plannerFaulted = false;
   private controller?: AbortController;
   constructor(options: RuntimeOptions) {
     this.config = { ...DEFAULT_CONFIG, ...options.config, allowedCapabilities: [...(options.config?.allowedCapabilities ?? [])] };
@@ -26,8 +30,14 @@ export class Runtime {
     deepFreeze(this.config);
     this.executor = options.executor; this.planner = options.planner;
     this.policy = options.policy ?? evaluatePolicy;
+    this.plannerCheckpointKey=options.plannerCheckpointKey;
+    if(this.plannerCheckpointKey && (typeof this.planner?.snapshot!=='function'||typeof this.planner?.restore!=='function'))
+      throw new Error('planner_checkpoint_contract_required');
     this.store = new Store(options.dbPath,this.config);
-    try { this.store.acquire(this.owner); } catch (error) { this.store.close(); throw error; }
+    try {
+      this.store.acquire(this.owner);
+      if(this.plannerCheckpointKey){const state=this.store.restore(this.plannerCheckpointKey);if(state!==undefined)this.planner!.restore!(state);}
+    } catch (error) { this.store.release(this.owner);this.store.close(); throw error; }
   }
   private check(): void {
     if (this.closed) throw new Error('runtime_closed');
@@ -53,6 +63,7 @@ export class Runtime {
   }
   async step(): Promise<boolean> {
     this.check();
+    if(this.plannerFaulted)throw new Error('planner_restart_required');
     if (this.active) throw new Error('runtime_busy');
     this.active = true;
     this.controller = new AbortController();
@@ -63,18 +74,24 @@ export class Runtime {
       this.store.renew(this.owner);
       if (this.store.control().stopped) return false;
       if (!this.store.next() && this.planner) {
+        // A timed-out plugin can keep mutating itself. Never reuse that instance.
+        this.plannerFaulted=true;
         const control = this.store.control();
         const actions = await this.deadline(() => this.planner!.plan({
-          observations:this.store.observations(),sequence:control.sequence,
+          observations:freshObservations(this.store.observations(),Date.now(),this.config.maxObservationAgeMs),
+          outcomes:this.store.outcomes(),sequence:control.sequence,
           remainingBudgetMicros:Math.max(0,this.config.budgetMicros-control.spentMicros-control.reservedMicros), signal,
         }),signal);
         this.check();
         if (signal.aborted || this.store.control().stopped) return false;
         if (!Array.isArray(actions) || actions.length > this.config.maxQueue) throw new Error('invalid_plan');
+        const snapshot=this.plannerCheckpointKey?this.planner.snapshot!():undefined;
         this.store.transaction(() => {
           for (const action of actions) this.store.enqueue(action);
+          if(this.plannerCheckpointKey)this.store.checkpoint(this.plannerCheckpointKey,snapshot);
           this.store.db.prepare('UPDATE control SET sequence=sequence+1 WHERE id=1').run();
         });
+        this.plannerFaulted=false;
       }
       const action = this.store.next();
       if (!action) return false;
