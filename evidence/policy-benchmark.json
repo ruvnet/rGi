@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T12:41:33.386Z",
+  "benchmark": "portable-policy-evaluation",
+  "iterations": 100000,
+  "accepted": 100000,
+  "warmupIterations": 10000,
+  "sampleDefinition": "Mean latency per operation in each of 20 batches; quantiles are batch means, not individual operation latency.",
+  "meanMicros": 0.44301572999999733,
+  "medianBatchMeanMicros": 0.31901679999999716,
+  "p95BatchMeanMicros": 0.9754405999999904,
+  "operationsPerSecond": 2257256.1926864446,
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "limitations": [
+    "Single local microbenchmark; not a production throughput guarantee.",
+    "Excludes persistence, models, network, native bindings and physical actuation.",
+    "No human baseline or AGI capability is measured."
+  ]
+}

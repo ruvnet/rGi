@@ -1,0 +1,10 @@
+{
+  "dbPath": "../.rgi/runtime.db",
+  "plugin": "./local-plugin.ts",
+  "runtime": {
+    "allowedCapabilities": ["simulation.step"],
+    "budgetMicros": 1000,
+    "minConfidence": 0.8,
+    "idleMs": 250
+  }
+}

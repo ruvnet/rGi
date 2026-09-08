@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T12:41:54.183Z",
+  "mode": "release",
+  "complete": true,
+  "releaseGatePassed": true,
+  "versions": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "cargo": "cargo 1.90.0 (840b83a10 2025-07-30)",
+    "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)"
+  },
+  "sourceHashes": {
+    ".github/workflows/verify.yml": "35544204fa27cca87819832bb7d758ad71d5c6566c0bff5306aa3b0430528215",
+    ".gitignore": "db09b834dc42fce8f19141612dd673204162c3d7e9e15f9624d524283acb4d03",
+    "Cargo.lock": "e8e8ce164ce759e1a8ff481ef3e61ec796b670fc0e8687af3e2d1d3806c0a1ab",
+    "Cargo.toml": "cdf91ccf57ce18f73ea7c18b3c3dbd80e2342e43898bcfb9060781c67050bcfb",
+    "README.md": "24d531e0fdaeaabb81c63c3b21c817effdfcb6a91935a3843aa1e6ee0180549b",
+    "crates/rgi-core/Cargo.toml": "519b59dc2f02bb846245a8317d2ab0fe4ea95ba28c600515c9182e0aabd7c096",
+    "crates/rgi-core/examples/bench.rs": "0bc7208c77d82ec27822f7b625deb3f46cb7be42b68edbc9343d348544b53976",
+    "crates/rgi-core/src/lib.rs": "fb5904fe6b3fb0efbfb179e952541086337c1bb8b86931ce9e00a55fad2beb24",
+    "crates/rgi-napi/Cargo.toml": "82ac332325065944aa3f33f7f87e35ef65e1a59e34f371e963e11684f06775c5",
+    "crates/rgi-napi/build.rs": "fcbd1ff3f627a7553fa1704dc6f558998daff8bc256015c37aace62cc49ce584",
+    "crates/rgi-napi/src/lib.rs": "187dde2bfc001a28c7592cf37c94228c440e6ce66324223dbfa44560dd0a698d",
+    "crates/rgi-wasm/Cargo.toml": "1e470c9d14f6066ca12e2a83fcd8f5330f07d4ca51565e349a83206bc7cb452d",
+    "crates/rgi-wasm/src/lib.rs": "bfb3fcee8c806ccb5e5a760456410409f36aa4a53729f5d41a684fb75fd88db3",
+    "docs/ADRs.md": "695b2108b3500638b24313f92fd077a2bbfc14651b303ddd19594925ffdcef16",
+    "docs/INTEGRATIONS.md": "7a3622c6305dcecc7ea74b1c2c1f9720b73c04828efb2a5757d0746d6857fd19",
+    "docs/OPERATIONS.md": "0867a532a2961fc12b4df4984f971f04b3ccb5cf50b85006746dd54b6e3ca7c9",
+    "docs/RUST.md": "023e761cd82be7710efecec207f953187ad0765e951d87ec883188174f5f2009",
+    "docs/SPECIFICATION.md": "bf40b34bfd3fc133f4de52be1a7a6c50d7ddb2b47f2d28058e1406b4cdd9d9a7",
+    "docs/THREAT-MODEL.md": "a8db911f6c0905a72ecdfd97550bb2a4d5345c7ea2929bc3234987deb8305f30",
+    "examples/local-plugin.ts": "482891ab3ddd876154482f3061eec3bdd175b660a370992e8f75b57ba3a85059",
+    "examples/rgi.json": "b4f73185c64b1db53c1b15703d528333c7b4f78c9ad5c452088cccdd864ff349",
+    "package-lock.json": "9a5599b31e7a46b7baf8867a51393b3e74080977aa489b24f95740e1801d94d1",
+    "package.json": "2bc51bd073733d2e4f39b73b81203d184af998712c34fe6f098b10fe611832b2",
+    "rust-toolchain.toml": "3a00ee1d8b1944b135b4b93b219422db2328a4c208bfc20c5d210f438f7207fa",
+    "scripts/benchmark-runtime.ts": "2574f4e19f09422392461dd2448c17601c4c53471f0491bac7db95c1dce65602",
+    "scripts/benchmark.ts": "47a5b40cba533a4b1de4aa0c837a260c68a38fd6367877a2ac0d9e4019775999",
+    "scripts/check-bindings.ts": "7ed54fb4944ae3a4df08240ea4a8eaab3fe7fdb01f2a4c07d3f4f2ac51f27f8a",
+    "scripts/harness.ts": "6d6123b14735144cc5b6147ef82b82b46030a25c371529017a71da1faadb9999",
+    "src/adapters/agenticow.ts": "7a65ae345b1e12d06204ae3b9478d35bb32f26f7c4359526128040cdbea2e84d",
+    "src/adapters/metaharness.ts": "4845c127a1d78b2059e4f2552a29dcf422b610003eee584e638abef10878cd52",
+    "src/adapters/rufield.ts": "28367091036caa65edcbfcb5cff08fad5689eec38146313443bfba62185b7db2",
+    "src/adapters/rvcsi.ts": "d8dd6b1aa40dd3a0245dff9e9d799b468a6aca3f550efc64e7ae8d287410be53",
+    "src/adapters/worldmodel.ts": "e9f802f65b2385d8b55ecdc3d84020609a34e66830eac04e30ab704aedee9020",
+    "src/bindings.ts": "17dc69101a0d7c988c624b46342d5937871bf99da845f331cb19a48a42f8db0d",
+    "src/cli.ts": "d91d28adf51aa5bdbf2f8c555fe43a8c354a3427225008bf7f421a62d4ceb8c1",
+    "src/contracts.ts": "bd0c21462396255cfdd8725e33f3bfb48b9d192f452b66409a6c8effe4e45f84",
+    "src/learning.ts": "5b0e3dd77d51740471dbad379c782ee77065a9ccc2de9935799b678aec3e8f37",
+    "src/policy.ts": "e1feb3b60c1afc0812046c62ebf9e5b37eca933ce0a2a6ff73b1b308d7913dd8",
+    "src/runtime.ts": "948f1a59e09f9272ebf4fa815053aff0e887afddc8f21625d45d565a32d102ab",
+    "src/store.ts": "f12eceebd9f30e7682a9c63fa2a4d0c703267ad91a26a3e1fac66bbf04699c12",
+    "tests/adapters.test.ts": "23094a99fe3755863ac73de78891e9f0f4ff658c046d98024f0c8caf797fefd7",
+    "tests/cli.test.ts": "cfc631a1c93002532503b77390bde8768aa884aee940aebecf49c17da6cbd5c5",
+    "tests/runtime.test.ts": "d5346685062d6858a1e935d1aa7ceaf6e7e390c0a7d840eb953c27b9946cfae5",
+    "tests/security.test.ts": "a8c4edbd4a37b7d52df0ad8ad18558bc14de8ff47276de5d4ea6ba1e759ac286",
+    "tsconfig.json": "ed7b5f815da474413efb02cd16e9b2b172c392eac3bd8b38e636d1c15e9d15ba"
+  },
+  "results": [
+    {
+      "name": "typescript",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4363,
+      "outputSha256": "d8bdd3429861d849832cfe644b751ef83c19ef6f36416e46edd23d4b5585a23b",
+      "reason": null
+    },
+    {
+      "name": "typescript-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2288,
+      "outputSha256": "8dc03f973fefdf5db1a53599f1ed30d93268dba62217e27b96fd0d22b2edcf2e",
+      "reason": null
+    },
+    {
+      "name": "rust-tests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 728,
+      "outputSha256": "9acbf29343374557f59bf5f3b435afb416ae6a77e398aed4cfd15cdc89a56b37",
+      "reason": null
+    },
+    {
+      "name": "rust-format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 221,
+      "outputSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reason": null
+    },
+    {
+      "name": "rust-clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 689,
+      "outputSha256": "4e0e14229c4402c01e3d6eec7cbf23df3200738a55040cc733d99a68cef379bc",
+      "reason": null
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-napi",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 941,
+      "outputSha256": "ad197650d82af230d039b689c6e6143cf14481ad776280774c5d4c679788165f",
+      "reason": null
+    },
+    {
+      "name": "wasm-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-wasm",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 435,
+      "outputSha256": "845f3cace10a23f832657960286289c4bcf9b6ad7e05f3aa17863ac4ccc4c34c",
+      "reason": null
+    },
+    {
+      "name": "binding-execution-parity",
+      "command": [
+        "node",
+        "scripts/check-bindings.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1221,
+      "outputSha256": "cf2f97889d50b4ee8c0d8e3227ac0b3ac082d46b0577119b111899e44c497be1",
+      "reason": null
+    },
+    {
+      "name": "benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 718,
+      "outputSha256": "a680906e2d30fcebaa964f6a713fef25d09cfc7ed1833f8765b24e878220878d",
+      "reason": null
+    },
+    {
+      "name": "runtime-benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark-runtime.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1002,
+      "outputSha256": "23850c7b54f3ea77e2f5d9764acc570e547372472de9de9bba523b70b4d558b8",
+      "reason": null
+    },
+    {
+      "name": "npm-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6566,
+      "outputSha256": "e074fc586813f2ca54af6c87e6bc9a5447f143bc4b50c7c222d493c9c1e6749a",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    },
+    {
+      "name": "rust-advisories",
+      "command": [
+        "cargo",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 13189,
+      "outputSha256": "7fbd52a355cabc6544b0b8d380e7396c33f55cb73377a5760528347b0db4774c",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    }
+  ],
+  "limitations": [
+    "Passing checks is not proof of AGI, safety, production readiness or authorization to publish.",
+    "Advisory checks do not replace review of reachable code.",
+    "No scanner stdout is retained to reduce accidental secret disclosure."
+  ]
+}
