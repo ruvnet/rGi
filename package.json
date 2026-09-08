@@ -1,0 +1,19 @@
+{
+  "name": "@ruvnet/rgi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A perpetual agentic runtime for AGI research built on the RuV Stack",
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
+    "demo": "node src/cli.ts demo",
+    "start": "node src/cli.ts run",
+    "harness": "node scripts/harness.ts",
+    "benchmark": "node scripts/benchmark.ts",
+    "build:native": "cargo build -p rgi-napi --release",
+    "build:wasm": "cargo build -p rgi-wasm --target wasm32-unknown-unknown --release"
+  },
+  "devDependencies": { "@types/node": "24.0.0", "typescript": "5.9.3" }
+}

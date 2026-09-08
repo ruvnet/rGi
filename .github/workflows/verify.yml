@@ -1,0 +1,27 @@
+name: Verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: rustup toolchain install 1.90.0 --profile minimal --target wasm32-unknown-unknown --component clippy --component rustfmt
+      - run: npm ci --ignore-scripts
+      - run: cargo install cargo-audit --locked --version 0.22.2
+      - run: cargo install wasm-bindgen-cli --locked --version 0.2.104
+      - run: node scripts/harness.ts
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: verification-evidence
+          path: artifacts/*.json
+          if-no-files-found: error
