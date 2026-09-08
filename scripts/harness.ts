@@ -19,6 +19,7 @@ const checks: Check[] = [
   { name: 'benchmark', command: 'node', args: ['scripts/benchmark.ts'] },
   { name: 'runtime-benchmark', command: 'node', args: ['scripts/benchmark-runtime.ts'] },
   { name: 'adaptation-benchmark', command: 'node', args: ['scripts/benchmark-adaptation.ts'] },
+  { name: 'generalization-framework', command: 'node', args: ['scripts/benchmark-generalization.ts'] },
   { name: 'npm-advisories', command: 'npm', args: ['audit', '--json'], scanner: true },
   { name: 'rust-advisories', command: 'cargo', args: ['audit', '--json'], scanner: true },
 ];

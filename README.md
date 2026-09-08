@@ -121,6 +121,8 @@ Read [operations](docs/OPERATIONS.md), [threat model](docs/THREAT-MODEL.md), [ar
 Source publication is separate from npm/crates.io release. Package publication remains disabled. A project license has not yet been selected; dependency licenses remain their respective authors' licenses.
 # Grounded adaptation update
 
+The [generalization framework](docs/GENERALIZATION.md) adds separate evaluations with no examples and fixed support examples, declared family exclusion, retention checks, per episode budgets and durable audit consumption before execution. Run `node scripts/benchmark-generalization.ts` to validate the public fixtures. The [research review](docs/GENERALIZATION-RESEARCH.md) explains the design and limits.
+
 The [September research review](docs/RESEARCH-2026-09.md) maps eight primary sources to implemented mechanisms and explicit limits. The runtime now supplies durable execution feedback, filters expired observations at planning time, checkpoints learned planner state with queued actions, and requires a new runtime instance after a planning failure.
 
 `src/planning.ts` provides bounded predictive beam search through an injected dynamics model. `src/adaptive.ts` connects outcomes to a scalar online learner for simulation. `src/evaluation.ts` checks paired audit results, retention, cost and permissions; `src/promotion-ledger.ts` persists audit consumption and statistical budgets across evaluations. None automatically installs a candidate or expands execution authority.
