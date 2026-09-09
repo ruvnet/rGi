@@ -9,3 +9,7 @@ artifacts/
 .env.*
 !.env.example
 .rgi/
+.claude-flow/
+.swarm/
+.claude/proven-config.json
+.claude/.proven-config-version

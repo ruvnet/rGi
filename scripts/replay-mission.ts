@@ -1,0 +1,14 @@
+import {readFileSync,statSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {unpackEvidence,unpackRvmEvidence} from '../src/evidence-container.ts';
+import {verifySignedProof} from '../src/mission-proof.ts';
+import type {SignedMissionProof} from '../src/mission-proof.ts';
+const [artifact,keyPath,profile]=process.argv.slice(2);
+if(!artifact||!keyPath)throw Error('Usage: node scripts/replay-mission.ts artifact.rvf trusted-public.pem');
+if(statSync(artifact).size>16*1024*1024||statSync(keyPath).size>16384)throw Error('input_too_large');
+if(profile!==undefined&&profile!=='--rvm')throw Error('unsupported_profile');
+const envelope=(profile==='--rvm'?unpackRvmEvidence:unpackEvidence)(readFileSync(artifact)) as {format:string;signed:SignedMissionProof;agentSource:string};
+if(envelope.format!=='rgi.mission.evidence.v1')throw Error('unsupported_evidence');
+const replay=verifySignedProof(envelope.signed,readFileSync(keyPath,'utf8'));
+if(typeof envelope.agentSource!=='string'||createHash('sha256').update(envelope.agentSource).digest('hex')!==envelope.signed.proof.spec.artifactSha256)throw Error('artifact_source_mismatch');
+console.log(JSON.stringify(replay,null,2));

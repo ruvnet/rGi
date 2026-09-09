@@ -20,6 +20,10 @@ const checks: Check[] = [
   { name: 'runtime-benchmark', command: 'node', args: ['scripts/benchmark-runtime.ts'] },
   { name: 'adaptation-benchmark', command: 'node', args: ['scripts/benchmark-adaptation.ts'] },
   { name: 'generalization-framework', command: 'node', args: ['scripts/benchmark-generalization.ts'] },
+  { name: 'sequential-mission', command: 'node', args: ['scripts/benchmark-mission.ts'] },
+  { name: 'rvf-proof-replay', command: 'node', args: ['scripts/replay-mission.ts', 'artifacts/mission.rvf', 'artifacts/mission.public.pem'] },
+  { name: 'rvm-proof-replay', command: 'node', args: ['scripts/replay-mission.ts', 'artifacts/mission.rvm.rvf', 'artifacts/mission.public.pem', '--rvm'] },
+  { name: 'upstream-rvm-parser', command: 'node', args: ['scripts/verify-rvm-format.ts', 'artifacts/mission.rvm.rvf'] },
   { name: 'npm-advisories', command: 'npm', args: ['audit', '--json'], scanner: true },
   { name: 'rust-advisories', command: 'cargo', args: ['audit', '--json'], scanner: true },
 ];

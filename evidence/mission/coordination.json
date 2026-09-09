@@ -1,0 +1,19 @@
+{
+  "tool": "@claude-flow/cli",
+  "version": "3.25.6",
+  "swarmId": "swarm-1788916040208-iirdz0",
+  "taskId": "task-1788916217286-zbnoga",
+  "topology": "hierarchical",
+  "platformWorkstreams": [
+    "rvf_evidence",
+    "isolated_sessions",
+    "mission_proof"
+  ],
+  "completionAuthority": "strict harness complete with 18 passed checks",
+  "memoryKey": "patterns/rgi-replay-mission-v1",
+  "sourceScan": {
+    "command": "security scan --target src --depth deep --type all",
+    "reportedFindings": 0,
+    "scope": "automated source scan plus documented manual findings and fixes"
+  }
+}

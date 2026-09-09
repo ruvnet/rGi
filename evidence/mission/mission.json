@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-09T01:28:02.572Z",
+  "replay": {
+    "valid": true,
+    "rootHash": "72d4e6b9048419d65386098263df513604cb3b567218698634fb5f13cca77a5e",
+    "arms": [
+      {
+        "arm": "baseline",
+        "requests": 38,
+        "transferCorrect": 0,
+        "transferTotal": 24,
+        "retentionCorrect": 12,
+        "retentionTotal": 12
+      },
+      {
+        "arm": "reset",
+        "requests": 38,
+        "transferCorrect": 0,
+        "transferTotal": 24,
+        "retentionCorrect": 12,
+        "retentionTotal": 12
+      },
+      {
+        "arm": "retained",
+        "requests": 39,
+        "transferCorrect": 24,
+        "transferTotal": 24,
+        "retentionCorrect": 12,
+        "retentionTotal": 12
+      }
+    ],
+    "retainedImproves": true,
+    "retentionPassed": true
+  },
+  "elapsedMs": 706.555025,
+  "launches": 6,
+  "requests": 115,
+  "rvfBytes": 44288,
+  "packMs": 3.2753759999999374,
+  "unpackMs": 5.43602199999998,
+  "executionReplayMatched": true,
+  "proofSha256": "0cd9cd02108b26d5d2ad459151224b3a76129062829249d9eca89ff1bde1cc4b",
+  "sessionComparison": {
+    "trials": 12,
+    "requestsPerMode": 24,
+    "freshLaunches": 12,
+    "sessionLaunches": 1,
+    "freshMs": 610.179194,
+    "sessionMs": 66.84947800000009,
+    "speedup": 9.127658319186864
+  },
+  "limitations": [
+    "Public deterministic scalar program fixture, not a neural model or unfamiliar domain test.",
+    "Signature proves possession of the signing key and byte integrity, not honest execution or AGI.",
+    "This generated demonstration key is not independent evaluator identity.",
+    "RVM is the runtime; this RVF contains replay evidence, not a guest executable."
+  ]
+}
