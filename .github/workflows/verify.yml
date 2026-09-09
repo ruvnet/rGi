@@ -23,5 +23,8 @@ jobs:
         if: always()
         with:
           name: verification-evidence
-          path: artifacts/*.json
+          path: |
+            artifacts/*.json
+            artifacts/*.rvf
+            artifacts/*.public.pem
           if-no-files-found: error
