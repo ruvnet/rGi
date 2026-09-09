@@ -1,0 +1,10 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "discovery.json": "14e3db64fdae720c98b17a013bc50b3d54e26014e992de33eabe485f8e173de2",
+    "discovery.public.pem": "0e4cbfcfd39c73c3d7329b18ec5dc8fdbd7510ab6a33dfe9b532760f694a3d47",
+    "discovery.rvf": "f6811f6f64f29e9a21e78ca3ac150ec1400ff45ece56fcf517ea2698a8b23d0d",
+    "discovery.rvm.rvf": "d0947bcf31bf0d03ac509a704bb7f430132774ccd9a784f83923c65d79beaf26",
+    "harness.json": "6427f4148596848b7f4d5ff71e8f4cd5f054448bf7e8b4e77369741fbadd65ce"
+  }
+}

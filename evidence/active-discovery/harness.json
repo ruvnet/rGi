@@ -1,0 +1,465 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-09T01:58:36.444Z",
+  "mode": "release",
+  "complete": true,
+  "releaseGatePassed": true,
+  "versions": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "cargo": "cargo 1.90.0 (840b83a10 2025-07-30)",
+    "rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)"
+  },
+  "sourceHashes": {
+    ".gitattributes": "687258bbf35286f26f59237862dc1939d3715a9645a5a3937065a425ed5ca187",
+    ".github/workflows/verify.yml": "55deab9046187007d92fef2016e79aa8c4a08f01a823b23e33739fad17e06549",
+    ".gitignore": "9f3345299d5f3f5be62076321e48cc2727fc1ec0de59ae251fb873fde84f00c8",
+    "Cargo.lock": "e8e8ce164ce759e1a8ff481ef3e61ec796b670fc0e8687af3e2d1d3806c0a1ab",
+    "Cargo.toml": "cdf91ccf57ce18f73ea7c18b3c3dbd80e2342e43898bcfb9060781c67050bcfb",
+    "README.md": "ee5bdd1b62ba837a14f892fe421ea0df5c51910c2c60473e26cff3095d7d2f9a",
+    "crates/rgi-core/Cargo.toml": "519b59dc2f02bb846245a8317d2ab0fe4ea95ba28c600515c9182e0aabd7c096",
+    "crates/rgi-core/examples/bench.rs": "0bc7208c77d82ec27822f7b625deb3f46cb7be42b68edbc9343d348544b53976",
+    "crates/rgi-core/src/lib.rs": "fb5904fe6b3fb0efbfb179e952541086337c1bb8b86931ce9e00a55fad2beb24",
+    "crates/rgi-napi/Cargo.toml": "82ac332325065944aa3f33f7f87e35ef65e1a59e34f371e963e11684f06775c5",
+    "crates/rgi-napi/build.rs": "fcbd1ff3f627a7553fa1704dc6f558998daff8bc256015c37aace62cc49ce584",
+    "crates/rgi-napi/src/lib.rs": "187dde2bfc001a28c7592cf37c94228c440e6ce66324223dbfa44560dd0a698d",
+    "crates/rgi-wasm/Cargo.toml": "1e470c9d14f6066ca12e2a83fcd8f5330f07d4ca51565e349a83206bc7cb452d",
+    "crates/rgi-wasm/src/lib.rs": "bfb3fcee8c806ccb5e5a760456410409f36aa4a53729f5d41a684fb75fd88db3",
+    "docs/ACTIVE-DISCOVERY-RESEARCH.md": "5905885a90a60dd0dc696cb87b3ddc4ea2b765eb9c2f7dad6fd81b7dbd8412f4",
+    "docs/ACTIVE-DISCOVERY.md": "b0005bed454403acc82a1f0a1623354f63398606041bc7fce208cddd0882c8d4",
+    "docs/ADR-006-grounded-adaptation.md": "d34992833fb185b9f230ac2b4b07a32187740a1bcb8e496ac1e6c4be95c83c1e",
+    "docs/ADR-007-generalization-framework.md": "77ca3c993839fb8805d42dc1a4c9b186a3b302b95003712b093e6aa8e8c39129",
+    "docs/ADR-008-replay-evidence.md": "70a401c1b4f30ac63412d978862ba16191235d09cc7c298b649597ee86d5740b",
+    "docs/ADR-009-isolated-sessions.md": "36fd3d54f655c5e4aaced7ef9c14607ce06425363554e591bbb56b343ec60674",
+    "docs/ADR-010-sequential-proof.md": "ca09dbcfc5b49fb9242008a110a52c5c0ba9fe3f877a55f073ec062c48f2051d",
+    "docs/ADR-011-active-discovery.md": "45401f2509af4ebbd1d4b621a3fb91f743d34ba7a973952875eedcd856ed538c",
+    "docs/ADRs.md": "695b2108b3500638b24313f92fd077a2bbfc14651b303ddd19594925ffdcef16",
+    "docs/GENERALIZATION-RESEARCH.md": "eca7fc188b8a5029593cd345b48555b58d574b64045684f48b6fb51ed204ea23",
+    "docs/GENERALIZATION.md": "42c35b87a778f55637cbc952ef03942c0a98cfad9998c73f2f8d9649dd6b64fc",
+    "docs/INTEGRATIONS.md": "7a3622c6305dcecc7ea74b1c2c1f9720b73c04828efb2a5757d0746d6857fd19",
+    "docs/MISSION-SECURITY.md": "63bd6a307154c7c651a31a0d625393447a75bb39c4edb1e552b81deeb7a43291",
+    "docs/MISSION.md": "6e7c85891be335052ecab688df00f8b7796d01f4aff3e2e2de07e4924ee5a050",
+    "docs/OPERATIONS.md": "24a108632bf519866100324157f885f4d47e425da86443a721cff710721d2fee",
+    "docs/RESEARCH-2026-09.md": "b0962391a0980c83915b0b0faf71cf06b26f9efe535b6e6a9622431a3b46368e",
+    "docs/RUST.md": "023e761cd82be7710efecec207f953187ad0765e951d87ec883188174f5f2009",
+    "docs/SPECIFICATION.md": "bf40b34bfd3fc133f4de52be1a7a6c50d7ddb2b47f2d28058e1406b4cdd9d9a7",
+    "docs/THREAT-MODEL.md": "73cb7eda1728f1f9817ad73636466ebb01f89be234313a25cb9f90a37045e57f",
+    "evidence/README.md": "cadb4aeff52a275a71d6a5505fe9f3a686f7c3304cd7c37129dac5a0b36993f6",
+    "evidence/generalization/README.md": "30cc0e682e4196f095830806d7cfb5a8510352acc6454421fec9ac021d702dfd",
+    "evidence/generalization/comparator-v2.json": "1326468e4fcb7b1903bdb627c3391f95c4f3aa4e1750d3e18fc1d1d174db30ea",
+    "evidence/generalization/diagnostic-v1.json": "f118c97bffeb3b17daff06b02848bf4717e03384dec70b815db7f9707fdd7648",
+    "evidence/generalization/harness.json": "8bc4749ae8b9edcd007fe2b68b82c9e2bd70670396215afdfa02ed1c2cef56b2",
+    "evidence/grounded-adaptation/README.md": "273e9864c688ae1467bb124698cbecf1a61baae1473d0e06b673fb5e32144850",
+    "evidence/grounded-adaptation/adaptation.json": "2e16873b4797b182ecba8368fe7741c701331fdff5a11e18477d9ae9dc8d7a8f",
+    "evidence/grounded-adaptation/harness.json": "e5522f9eccfffc075cc1024d4df71b7e2aaaaed3fefee4b85d1e92d8ea868e6c",
+    "evidence/grounded-adaptation/runtime-benchmark.json": "22058a1dbce78ca8b4be5f75e9ae24b8260fa31970fb66ef2e5b980d4170f4fe",
+    "evidence/mission/README.md": "d200def41aaa78b900ff2d0c0e6230ab2d7efc4fbab8e354a1bfbed9e77fd14b",
+    "evidence/mission/coordination.json": "86466fa2768244ecba9302020448866e19bf9b528c7bd55578ab3d23a6f56002",
+    "evidence/mission/digests.json": "3f66b598991b88883ac50e8cbc1ce52d034d6f901741961995bc71b2296f3dea",
+    "evidence/mission/harness.json": "c09be7d9b8b53414a6be05b77424bc1c0c114fdc8f9817933b6623f00fc46648",
+    "evidence/mission/mission.json": "c91931757b454f307c631356b28b9baddd0514950a30f867d8a9f0a9ee00167f",
+    "evidence/mission/mission.public.pem": "267839d6787973f9cae43675484ff1226cae77f24395703164a35772dc8f3538",
+    "evidence/mission/mission.rvf": "23f0114ab04f3437de591c56645451597c72b349c4e5157ff2d7f3c3b59bde09",
+    "evidence/mission/mission.rvm.rvf": "305f0318cb0b4bd869af03753adb070657f136bec41281363e61596166bc79d3",
+    "evidence/policy-benchmark.json": "f02caa32f612f2f4244900ac813e5c61ecfbedad00a1d0b50613a78402602299",
+    "evidence/runtime-benchmark.json": "b60176c96552c524c1c5e506794b2a1060c71a32b2e5792e14955777e9b3bd07",
+    "evidence/verification.json": "0bbdda167e3ad613659ff573ec832cb738afa676764bc09441176b77d84d5c2c",
+    "examples/local-plugin.ts": "482891ab3ddd876154482f3061eec3bdd175b660a370992e8f75b57ba3a85059",
+    "examples/mission-agent.mjs": "a4b879e1746bd13244cf95403646c28621178b62a2eae647afbf2479fbd5175e",
+    "examples/rgi.json": "b4f73185c64b1db53c1b15703d528333c7b4f78c9ad5c452088cccdd864ff349",
+    "package-lock.json": "9a5599b31e7a46b7baf8867a51393b3e74080977aa489b24f95740e1801d94d1",
+    "package.json": "2bc51bd073733d2e4f39b73b81203d184af998712c34fe6f098b10fe611832b2",
+    "rust-toolchain.toml": "3a00ee1d8b1944b135b4b93b219422db2328a4c208bfc20c5d210f438f7207fa",
+    "scripts/benchmark-adaptation.ts": "8637d5f622344c91995d0b9e428462e5029bda3ad2147d754ff7dd4493a94a0d",
+    "scripts/benchmark-discovery-kernel.ts": "22078f7586ef0edb011dbcd323c4cac75b835f6d28d8d9118dd444cf22037ee9",
+    "scripts/benchmark-discovery.ts": "23e7f265370f28e3c7e8b84184497dade2d39f069c201eb6cf2222383bb76ec4",
+    "scripts/benchmark-generalization.ts": "5e8aa15284194c5c62a1dfc4b978a9359c7a3e9aa44643f270bf64152f31cea6",
+    "scripts/benchmark-mission.ts": "01b422374964ca09485c696a86d7af3aa5eba936a2fd9436bf250069a6e51535",
+    "scripts/benchmark-runtime.ts": "2574f4e19f09422392461dd2448c17601c4c53471f0491bac7db95c1dce65602",
+    "scripts/benchmark.ts": "47a5b40cba533a4b1de4aa0c837a260c68a38fd6367877a2ac0d9e4019775999",
+    "scripts/check-bindings.ts": "7ed54fb4944ae3a4df08240ea4a8eaab3fe7fdb01f2a4c07d3f4f2ac51f27f8a",
+    "scripts/harness.ts": "95859ffe7657153333beb0ffb3d667ae5caac1a1cb6011fcb9514b4775954201",
+    "scripts/replay-discovery.ts": "71593352d8fcf11011fd5c0761ee3fd41251eddb4412ef8fbe4a06f3e8082f9a",
+    "scripts/replay-mission.ts": "1921d5dc50ef32c17faeecf0fb46004f5ae9a1e876c596dc5bb26dd8561724e6",
+    "scripts/verify-rvm-format.ts": "d7a58fe84bc1b16693c31bea49f658d9d2a684bc51a1b28afcc4b7550af23289",
+    "src/adapters/agenticow.ts": "7a65ae345b1e12d06204ae3b9478d35bb32f26f7c4359526128040cdbea2e84d",
+    "src/adapters/metaharness.ts": "4845c127a1d78b2059e4f2552a29dcf422b610003eee584e638abef10878cd52",
+    "src/adapters/rufield.ts": "28367091036caa65edcbfcb5cff08fad5689eec38146313443bfba62185b7db2",
+    "src/adapters/rvcsi.ts": "d8dd6b1aa40dd3a0245dff9e9d799b468a6aca3f550efc64e7ae8d287410be53",
+    "src/adapters/worldmodel.ts": "e9f802f65b2385d8b55ecdc3d84020609a34e66830eac04e30ab704aedee9020",
+    "src/adaptive.ts": "ae255bbec727cc2c3190aece5896e1821ee8ec2b44eb759c03cf6dbdeff751e2",
+    "src/bindings.ts": "17dc69101a0d7c988c624b46342d5937871bf99da845f331cb19a48a42f8db0d",
+    "src/cli.ts": "d91d28adf51aa5bdbf2f8c555fe43a8c354a3427225008bf7f421a62d4ceb8c1",
+    "src/context.ts": "68828a5c17ce45147739957f1d5020a640ccc5837457152114480df9d61737c5",
+    "src/contracts.ts": "862f9d56cc80276dc7761aa5770228deec504b57e9d48b68fdb09f00bcd2e4a6",
+    "src/discovery-evidence.ts": "d5e54d4a175c4ea182659806d6fdd97a22e41b11af237324aae2e8041c5fbff0",
+    "src/discovery-fixtures.ts": "659b76cf93818557061964da4d66fb3d6cd90f6c4f632d9f644c41309411d24a",
+    "src/discovery-run.ts": "ab60587d81709954ae89ea897c613fc20876b6b3114983e0924009289999055d",
+    "src/discovery.ts": "b3d0603c60c0e7ee9df432749741e40699e9a17d82c5f4da40fb9aa48474e169",
+    "src/evaluation.ts": "151fc23d209129a0fb5bd746fc3338831feb3017e208dae5d969ec3b2d42cf6e",
+    "src/evidence-container.ts": "fdcc0be5ccaca9b0ddea16593214b8014211d8ef1015e04d01fd8f4136a75c1f",
+    "src/generalization-contracts.ts": "f96a65ac79d2cb5c9a82a9a513d357ef8e4e99c3d34f88b4af26683986f8a21e",
+    "src/generalization-fixtures.ts": "5d2d3922fde4a58980dae421367285de30359f098aaa4353db7147bde2cc36dc",
+    "src/generalization.ts": "d83979e7e2fe7a349b13a2c93f3c49f3445d223e8b8db218f0b8a665154f9cde",
+    "src/isolated-session.ts": "b4cb8d7a156a349b0d5c0214d1b7ad60eb42910b5273d94764c4e41e9387197c",
+    "src/isolated-worker.mjs": "f94315ae838af530b9318f8f10adcb20bc9430b575ce73700975aee9a8456e9e",
+    "src/learning.ts": "feda9b0cc4bc5542d615f6d7b14250a78efff0d8690fd6acb9a629efbf31b96a",
+    "src/mission-contracts.ts": "c8001888a469147a876b64c67a370d931dc95e8b09364f90d43147ce0381b18d",
+    "src/mission-proof.ts": "cd2342a223a8bf10a2feac55d4ac64a16f09368bbc50efbe7cdaeb9bae1ec8f4",
+    "src/mission.ts": "bf324b9324a244f091e143cfeac877d0738e369d877a5f40051cafd677b2699d",
+    "src/planning.ts": "17a9d8e6719cb1da70940098a73590bf538a52936c79582466b0f1866c913b6e",
+    "src/policy.ts": "b00a48aafd1b1d70ed968085b57eaa171cb2294cd69925143a665d269b33a5a5",
+    "src/promotion-ledger.ts": "4235b729429a9c3dd52039c813a9ab0850cc8ebabe5dddabcfd99974af3d5e67",
+    "src/runtime.ts": "deeb36a6d2cd9db312bf73ebc7e5f3995f2f22b7ef56d55434c2ffbb9fed2e30",
+    "src/store.ts": "c215e191d12409142966d04eb44cb375cba29133a13010ee1add71cf9cac9db0",
+    "tests/adapters.test.ts": "23094a99fe3755863ac73de78891e9f0f4ff658c046d98024f0c8caf797fefd7",
+    "tests/cli.test.ts": "cfc631a1c93002532503b77390bde8768aa884aee940aebecf49c17da6cbd5c5",
+    "tests/discovery-evidence.test.ts": "d4cd55fa852d1bfe505aaa7b9ed5d8ec3912f342910ecfeef5da96842bb2ba47",
+    "tests/discovery-fixtures.test.ts": "631116516be91d8b2f318d5299e9e5f4c725834615d57b1c4b5f2fbc38b704b1",
+    "tests/discovery-run.test.ts": "037c90651ea598495a64dfcb46e004b7fdd6d9d357c278f43e54b36218525e12",
+    "tests/discovery.test.ts": "fb0a0d13be6827ac51ec1544a9e364fecbb7528b99518275bd46f1b1ab918f9d",
+    "tests/evaluation.test.ts": "6e3f0a2cd9870812d9024280173f08d42c5ec0879a62d6e5f121cbedd9a01ef1",
+    "tests/evidence-container.test.ts": "7f485351b0efc99c5ebd996cd432fe83ac24d25da03db7d03997387be28aca9c",
+    "tests/feedback.test.ts": "bc199e1dee03f74de304ea6e3a9383e425c117f0815fd3f9fbc9dac4c87a590a",
+    "tests/fixtures/isolated-agent.mjs": "043429488d95b601761355656179f3a8a151e1c68fc7bd1014cf9898c797687a",
+    "tests/fixtures/isolated-startup-hang.mjs": "548ba5eab6caaeffa5d1b2520156fd41227343f8ddc41068f1017f5430e5753c",
+    "tests/generalization-fixtures.test.ts": "545cd93bd185767bcdc3e5db6764ff052b96f392589f3eb2d2fb1778ca3a79f0",
+    "tests/generalization.test.ts": "33701253146d872c4025982d152398c4420807701af07ce9dc937d413c049027",
+    "tests/isolated-session.test.ts": "7950c518005e28908900f37437c49a2175584aaa1ff19af16d683f673a6803fd",
+    "tests/mission-proof.test.ts": "5e92249d9dce469736653ceb1f21c64b0d87c76651a7edef96c57e5abbbdb411",
+    "tests/mission.test.ts": "04601767b4ebd0ed3c9983d75aeac8dc76cf156e50176e806b28bfbba9a8c7e4",
+    "tests/planning.test.ts": "35b945b9b186298824db42666f34a3b8eca068548d6d305b23e06c40b6917fa0",
+    "tests/promotion-ledger.test.ts": "6700601bd750e4c9e49e30663d30bcb56b9eb692727c2dc1abb1a7db9e3dc31d",
+    "tests/runtime.test.ts": "d5346685062d6858a1e935d1aa7ceaf6e7e390c0a7d840eb953c27b9946cfae5",
+    "tests/security.test.ts": "a8c4edbd4a37b7d52df0ad8ad18558bc14de8ff47276de5d4ea6ba1e759ac286",
+    "tsconfig.json": "ed7b5f815da474413efb02cd16e9b2b172c392eac3bd8b38e636d1c15e9d15ba",
+    "vendor/rvforge/LICENSE": "ece8bf905b85de2ced3d34114aef80ba159ed32b410556a8bf36bbfca5108e1a",
+    "vendor/rvforge/README.md": "626b9137a598d8410bf700911d03e9c4406e87a443d05731ecbfc3cb719ec7e1",
+    "vendor/rvforge/errors.ts.source": "ac29964b45de1c29ae29c37ab1eca1a54d00cebf4f896b26b1d00e9c06dec76a",
+    "vendor/rvforge/hash.ts.source": "725643e7106119349c026dc2edb66a4cc3c24bb3678d2c1034906fb480d62408",
+    "vendor/rvforge/rvf-writer.ts.source": "9415aff4aa82c1992572ac0743758464f5ead2d5673b4cedaf1c18c22a402fb1",
+    "vendor/rvforge/rvf.ts.source": "c8da607b808538dd200c536c32474bb657f9ec46b8320372d8e86fed0c8adced",
+    "vendor/rvforge/validate.ts.source": "65afd176304d976b6ce258561591621f8a95f914f1ade3b6ef43090f1534d206",
+    "vendor/rvm/Cargo.toml.source": "5961cd793af7dcdcc06e83084b259e0f34f5f218c4aea1f6b2836d8a42c34f45",
+    "vendor/rvm/LICENSE": "e098e035786250fafd521092c16232295472e1ca65f7f62232d46015ad6fee24",
+    "vendor/rvm/README.md": "657f347124fc2202184aa0e982c2b0f9789d31d335f3ee2448df6faa2ae8cea6",
+    "vendor/rvm/container.rs.source": "e810dfd9faed9f71af75841a785b860140919e86b237f68e189664cd8acd80f2",
+    "vendor/rvm/format.rs.source": "8a3d6bce2d79ee0ffa986fe95ce2d036e80884cb37f4103c6ebe5f57b77a7ebd"
+  },
+  "results": [
+    {
+      "name": "typescript",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2971,
+      "outputSha256": "d8bdd3429861d849832cfe644b751ef83c19ef6f36416e46edd23d4b5585a23b",
+      "reason": null
+    },
+    {
+      "name": "typescript-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3061,
+      "outputSha256": "0aba1590a6e82f036ac44746686da861beccf65915e8492cbc8dc77e2f081de5",
+      "reason": null
+    },
+    {
+      "name": "rust-tests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 163,
+      "outputSha256": "c362c1deec8746bfb1d6ebb53983976b17fc16a85d227b22b6b8ebdb5bc35fd2",
+      "reason": null
+    },
+    {
+      "name": "rust-format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 73,
+      "outputSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "reason": null
+    },
+    {
+      "name": "rust-clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 400,
+      "outputSha256": "2090e65e4048f402bd818508139085e5e118232ec441dbe4f86260f397bfd071",
+      "reason": null
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-napi",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 442,
+      "outputSha256": "6d3eaf2c209135bbe8ab73ce7fd153cccbec63a17a886a08a393ca606424c2ec",
+      "reason": null
+    },
+    {
+      "name": "wasm-build",
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "rgi-wasm",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--release",
+        "--locked"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 82,
+      "outputSha256": "2037a5f67be9f05ea0ddb465344d2fc0c53c5c3d52771a26a5072378e422c7b3",
+      "reason": null
+    },
+    {
+      "name": "binding-execution-parity",
+      "command": [
+        "node",
+        "scripts/check-bindings.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 161,
+      "outputSha256": "cf2f97889d50b4ee8c0d8e3227ac0b3ac082d46b0577119b111899e44c497be1",
+      "reason": null
+    },
+    {
+      "name": "benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 196,
+      "outputSha256": "e70f275eee8a909411566d0c3b0d09debc7792569775124652a46dd033c96130",
+      "reason": null
+    },
+    {
+      "name": "runtime-benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark-runtime.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1036,
+      "outputSha256": "89e3939ec30648da37ffaffe3e585d2f2a8da64b8c3959cb9ccf1a2511f6f69b",
+      "reason": null
+    },
+    {
+      "name": "adaptation-benchmark",
+      "command": [
+        "node",
+        "scripts/benchmark-adaptation.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2143,
+      "outputSha256": "a86ed2ce2d623c3627fd0f90f4472edb3c8294d96595b46f9ce11a044e577da5",
+      "reason": null
+    },
+    {
+      "name": "generalization-framework",
+      "command": [
+        "node",
+        "scripts/benchmark-generalization.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 208,
+      "outputSha256": "fae46f38d8e71e8a90ab64afbca04864a3e0684bcad5ebd5a63b49ef534707b3",
+      "reason": null
+    },
+    {
+      "name": "sequential-mission",
+      "command": [
+        "node",
+        "scripts/benchmark-mission.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1721,
+      "outputSha256": "feef92bd3a6d1db06e69ed3c60592e5c13099a9b0a165c6b27fa8db301166209",
+      "reason": null
+    },
+    {
+      "name": "rvf-proof-replay",
+      "command": [
+        "node",
+        "scripts/replay-mission.ts",
+        "artifacts/mission.rvf",
+        "artifacts/mission.public.pem"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 234,
+      "outputSha256": "8d3aaddf7776934da4a27c680bfe866f1e468cd3cf6babe3497209a43f9bf93d",
+      "reason": null
+    },
+    {
+      "name": "rvm-proof-replay",
+      "command": [
+        "node",
+        "scripts/replay-mission.ts",
+        "artifacts/mission.rvm.rvf",
+        "artifacts/mission.public.pem",
+        "--rvm"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 268,
+      "outputSha256": "8d3aaddf7776934da4a27c680bfe866f1e468cd3cf6babe3497209a43f9bf93d",
+      "reason": null
+    },
+    {
+      "name": "upstream-rvm-parser",
+      "command": [
+        "node",
+        "scripts/verify-rvm-format.ts",
+        "artifacts/mission.rvm.rvf"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 894,
+      "outputSha256": "037febe0504955310dfb3dc1faf425f1348a0647b8747344af5dd5ad06875110",
+      "reason": null
+    },
+    {
+      "name": "active-discovery",
+      "command": [
+        "node",
+        "scripts/benchmark-discovery.ts"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 56231,
+      "outputSha256": "dd34caf301ecada7cdce2c00a52cee6ca76ded08e64745ee0e43c640dda70e3d",
+      "reason": null
+    },
+    {
+      "name": "discovery-rvf-replay",
+      "command": [
+        "node",
+        "scripts/replay-discovery.ts",
+        "artifacts/discovery.rvf",
+        "artifacts/discovery.public.pem"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5371,
+      "outputSha256": "2a0335b5870681f93fc27c81dab905ca338a431ad1cac93349d1ef268b3b7d94",
+      "reason": null
+    },
+    {
+      "name": "discovery-rvm-replay",
+      "command": [
+        "node",
+        "scripts/replay-discovery.ts",
+        "artifacts/discovery.rvm.rvf",
+        "artifacts/discovery.public.pem",
+        "--rvm"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5638,
+      "outputSha256": "2a0335b5870681f93fc27c81dab905ca338a431ad1cac93349d1ef268b3b7d94",
+      "reason": null
+    },
+    {
+      "name": "npm-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 8104,
+      "outputSha256": "e074fc586813f2ca54af6c87e6bc9a5447f143bc4b50c7c222d493c9c1e6749a",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    },
+    {
+      "name": "rust-advisories",
+      "command": [
+        "cargo",
+        "audit",
+        "--json"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 13443,
+      "outputSha256": "7fbd52a355cabc6544b0b8d380e7396c33f55cb73377a5760528347b0db4774c",
+      "reason": null,
+      "advisoryDataTimestamp": "Not independently established; command execution time is not feed freshness."
+    }
+  ],
+  "limitations": [
+    "Passing checks is not proof of AGI, safety, production readiness or authorization to publish.",
+    "Advisory checks do not replace review of reachable code.",
+    "No scanner stdout is retained to reduce accidental secret disclosure."
+  ]
+}
