@@ -24,6 +24,9 @@ const checks: Check[] = [
   { name: 'rvf-proof-replay', command: 'node', args: ['scripts/replay-mission.ts', 'artifacts/mission.rvf', 'artifacts/mission.public.pem'] },
   { name: 'rvm-proof-replay', command: 'node', args: ['scripts/replay-mission.ts', 'artifacts/mission.rvm.rvf', 'artifacts/mission.public.pem', '--rvm'] },
   { name: 'upstream-rvm-parser', command: 'node', args: ['scripts/verify-rvm-format.ts', 'artifacts/mission.rvm.rvf'] },
+  { name: 'active-discovery', command: 'node', args: ['scripts/benchmark-discovery.ts'] },
+  { name: 'discovery-rvf-replay', command: 'node', args: ['scripts/replay-discovery.ts', 'artifacts/discovery.rvf', 'artifacts/discovery.public.pem'] },
+  { name: 'discovery-rvm-replay', command: 'node', args: ['scripts/replay-discovery.ts', 'artifacts/discovery.rvm.rvf', 'artifacts/discovery.public.pem', '--rvm'] },
   { name: 'npm-advisories', command: 'npm', args: ['audit', '--json'], scanner: true },
   { name: 'rust-advisories', command: 'cargo', args: ['audit', '--json'], scanner: true },
 ];
