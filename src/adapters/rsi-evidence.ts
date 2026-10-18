@@ -50,9 +50,20 @@ export function inspectRSIEvidence(serialized: string, policy: RSIEvidencePolicy
       || !nonnegative(accounting.runtime_seconds) || !nonnegative(accounting.model_tokens)
       || !nonnegative(accounting.connector_calls) || !object(promotion) || promotion.eligible !== false)
       return deny('invalid_receipt');
+    const journal=value.journal_at_receipt_write;
+    if (!object(journal) || journal.run_id !== value.run_id || journal.decision !== decision.status
+      || !object(journal.evidence) || !object(journal.spec)) return deny('journal_mismatch');
+    const evidence=journal.evidence, spec=journal.spec;
+    const flags=['correctness_no_regression','security_no_regression','reliability_no_regression','holdout_passed','rollback_verified'];
+    if (!nonnegative(evidence.baseline) || evidence.baseline === 0 || !nonnegative(evidence.candidate)
+      || typeof spec.lower_is_better !== 'boolean' || !nonnegative(spec.min_gain) || spec.min_gain < .10
+      || flags.some(flag=>typeof evidence[flag] !== 'boolean')) return deny('invalid_evaluation');
+    const gain=spec.lower_is_better ? (evidence.baseline-evidence.candidate)/evidence.baseline
+      : (evidence.candidate-evidence.baseline)/evidence.baseline;
+    if (Math.abs(gain-decision.gain_ratio)>1e-10) return deny('gain_mismatch');
     const accepted = decision.status === 'accepted';
     if (accepted && (decision.gain_ratio < .10 || decision.correctness_no_regression !== true
-      || decision.rollback_verified !== true)) return deny('invalid_acceptance');
+      || decision.rollback_verified !== true || flags.some(flag=>evidence[flag] !== true) || gain < spec.min_gain)) return deny('invalid_acceptance');
     return { valid: true, reason: 'independent_rgi_audit_required', localCandidateAccepted: accepted,
       eligibleForPromotion: false, runId: policy.expectedRunId, costUsd: accounting.cost_usd as number | null,
       billingKnown: accounting.cost_usd !== null && accounting.cost_coverage === 'complete' };
