@@ -8,4 +8,6 @@ Unknown billing remains null. Partial billing is not complete billing. Unknown i
 
 The source is compatible with the bounded experiment receipt schema version1 from the RuV Stack experiment foundation. Recovery drill results and retrieval reports use their own schemas and must not be submitted as experiment receipts.
 
-Run `npm run typecheck` and `npm test`. The tests cover digest/source/run mismatches, freshness, malformed receipts, acceptance boundaries and authority injection. Operational validation on a Node24 ruOS desktop passed all71 tests and type checking; full native/WASM/advisory verification remains the repository CI gate.
+Run `npm run typecheck` and `npm test`. The tests cover digest/source/run mismatches, freshness, malformed receipts, acceptance boundaries and authority injection. Operational validation on a Node24 ruOS desktop passed all72 tests and type checking; full native/WASM/advisory verification remains the repository CI gate.
+
+Local acceptance also requires all five journal gates (correctness, security, reliability, holdout and rollback), a matching journal decision, and arithmetic consistent with baseline, candidate and declared gain.
