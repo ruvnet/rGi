@@ -9,7 +9,10 @@ const receipt = () => ({ schema_version: 1, run_id: 'test:one', source_sha256: s
   created_at: new Date(now-1000).toISOString(),
   decision: { status: 'accepted', gain_ratio: .25, correctness_no_regression: true, rollback_verified: true },
   accounting: { cost_usd: null as number | null, cost_coverage: 'unavailable', runtime_seconds: 1, model_tokens: 0, connector_calls: 0 },
-  promotion: { eligible: false } });
+  promotion: { eligible: false },
+  journal_at_receipt_write: { run_id:'test:one',decision:'accepted',spec:{lower_is_better:true,min_gain:.10},
+    evidence:{baseline:100,candidate:75,correctness_no_regression:true,security_no_regression:true,
+      reliability_no_regression:true,holdout_passed:true,rollback_verified:true} } });
 const inspect = (value: unknown, overrides = {}) => {
   const text = JSON.stringify(value);
   return inspectRSIEvidence(text, { expectedRunId: 'test:one', expectedSourceSha256: source,
@@ -49,4 +52,16 @@ test('unknown fields cannot widen authority and partial billing remains partial'
   assert.equal(result.valid, true);
   assert.equal(result.eligibleForPromotion, false);
   assert.equal(result.billingKnown, false);
+});
+
+test('all journal gates and arithmetic must match the declared acceptance', () => {
+  for (const flag of ['security_no_regression','reliability_no_regression','holdout_passed']) {
+    const value=receipt();
+    (value.journal_at_receipt_write.evidence as Record<string, unknown>)[flag]=false;
+    assert.equal(inspect(value).valid,false);
+  }
+  const mismatch=receipt();mismatch.journal_at_receipt_write.decision='rejected';
+  assert.equal(inspect(mismatch).valid,false);
+  const arithmetic=receipt();arithmetic.journal_at_receipt_write.evidence.candidate=90;
+  assert.equal(inspect(arithmetic).valid,false);
 });
