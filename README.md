@@ -126,3 +126,8 @@ The [September research review](docs/RESEARCH-2026-09.md) maps eight primary sou
 `src/planning.ts` provides bounded predictive beam search through an injected dynamics model. `src/adaptive.ts` connects outcomes to a scalar online learner for simulation. `src/evaluation.ts` checks paired audit results, retention, cost and permissions; `src/promotion-ledger.ts` persists audit consumption and statistical budgets across evaluations. None automatically installs a candidate or expands execution authority.
 
 Run `node scripts/benchmark-adaptation.ts` for the fixed synthetic comparison. With 128 equal calibration interactions per model and parameters frozen during audit, adaptation completed 120/120 cases versus 80/120 for the frozen baseline. All gains came from the negative dynamics regime; the other two regimes retained 40/40. This tests instances of one scalar family, not general intelligence or transfer to unseen domains. See [ADR 006](docs/ADR-006-grounded-adaptation.md).
+
+<!-- ruv-constellation:manifest -->
+## ruv constellation
+
+[manifest.ruv](manifest.ruv) describes this repository with source-pinned capability evidence. Explore the [ruvnet nexus](https://github.com/ruvnet/ruvnet/blob/main/docs/ruv-catalog.md) and [manifest contract](https://github.com/ruvnet/ruvnet/blob/main/docs/ruv-manifest.md). Declared integration roles are discovery metadata and do not grant execution authority or certify runtime behavior.
